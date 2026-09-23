@@ -1,375 +1,1192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dodo Trendz | Trendy & Cool Streetwear</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dodo Trendz | Streetwear Fashion</title>
 
-        body {
-            background-color: #f4f4f6;
-            color: #333;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,Tahoma,sans-serif;
+}
 
-        /* Announcement Bar */
-        .top-bar {
-            background-color: #fdd835;
-            color: #000;
-            text-align: center;
-            padding: 8px;
-            font-weight: bold;
-            font-size: 13px;
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        /* Header Navigation */
-        header {
-            background: #fff;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+body{
+    background:#f4f4f6;
+    color:#222;
+}
 
-        .logo {
-            font-size: 24px;
-            font-weight: 900;
-            color: #111;
-            letter-spacing: -0.5px;
-        }
+/* TOP BAR */
+.top-bar{
+    background:#fdd835;
+    color:#000;
+    text-align:center;
+    padding:8px;
+    font-size:12px;
+    font-weight:bold;
+}
 
-        .logo span {
-            color: #ff3e6c;
-        }
+/* HEADER */
+header{
+    background:#fff;
+    padding:14px 18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
 
-        nav a {
-            margin: 0 10px;
-            text-decoration: none;
-            color: #333;
-            font-weight: 600;
-            font-size: 14px;
-        }
+.logo{
+    font-size:21px;
+    font-weight:900;
+}
 
-        .nav-icons {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
+.logo span{
+    color:#ff3e6c;
+}
 
-        .cart-btn {
-            background: #fdd835;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 13px;
-            border: none;
-            cursor: pointer;
-        }
+nav{
+    display:flex;
+    gap:18px;
+}
 
-        /* Hero Banner */
-        .hero {
-            background: linear-gradient(135deg, #2b5876, #4e4376);
-            color: white;
-            text-align: center;
-            padding: 50px 20px;
-        }
+nav a{
+    text-decoration:none;
+    color:#333;
+    font-size:13px;
+    font-weight:600;
+}
 
-        .hero h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
+.cart-btn{
+    background:#fdd835;
+    border:0;
+    padding:9px 13px;
+    border-radius:20px;
+    font-weight:bold;
+    cursor:pointer;
+}
 
-        .hero p {
-            font-size: 16px;
-            opacity: 0.9;
-            margin-bottom: 20px;
-        }
+/* HERO */
+.hero{
+    background:linear-gradient(135deg,#2b5876,#4e4376);
+    color:white;
+    text-align:center;
+    padding:55px 20px;
+}
 
-        .shop-now-btn {
-            background-color: #fdd835;
-            color: #000;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 15px;
-            cursor: pointer;
-        }
+.hero h1{
+    font-size:31px;
+    margin-bottom:8px;
+}
 
-        /* Categories Bar */
-        .categories {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            padding: 20px;
-            overflow-x: auto;
-        }
+.hero p{
+    font-size:14px;
+    margin-bottom:20px;
+}
 
-        .cat-chip {
-            background: #fff;
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            border: 1px solid #ddd;
-            cursor: pointer;
-            white-space: nowrap;
-        }
+.shop-now-btn{
+    display:inline-block;
+    background:#fdd835;
+    color:#000;
+    padding:12px 28px;
+    border-radius:25px;
+    font-weight:bold;
+    text-decoration:none;
+    cursor:pointer;
+}
 
-        .cat-chip.active {
-            background: #111;
-            color: #fff;
-            border-color: #111;
-        }
+/* CATEGORIES */
+.categories{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    padding:20px;
+    overflow-x:auto;
+}
 
-        /* Product Grid */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+.cat-chip{
+    background:white;
+    border:1px solid #ddd;
+    padding:8px 16px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+    white-space:nowrap;
+    cursor:pointer;
+}
 
-        .section-title {
-            font-size: 20px;
-            margin-bottom: 20px;
-            text-align: left;
-            font-weight: 800;
-        }
+.cat-chip.active{
+    background:#111;
+    color:#fff;
+}
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
+/* CONTAINER */
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
 
-        .product-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: 0.3s;
-            position: relative;
-        }
+.section-title{
+    font-size:20px;
+    font-weight:800;
+    margin-bottom:18px;
+}
 
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
+/* PRODUCTS */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
 
-        .tag {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: #ff3e6c;
-            color: white;
-            font-size: 10px;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-weight: bold;
-        }
+.product-card{
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,.06);
+    position:relative;
+    transition:.3s;
+}
 
-        .product-img {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-            background-color: #eee;
-        }
+.product-card:hover{
+    transform:translateY(-4px);
+}
 
-        .product-info {
-            padding: 15px;
-        }
+.tag{
+    position:absolute;
+    top:10px;
+    left:10px;
+    background:#ff3e6c;
+    color:#fff;
+    font-size:9px;
+    padding:5px 8px;
+    border-radius:4px;
+    font-weight:bold;
+    z-index:2;
+}
 
-        .brand-name {
-            font-size: 11px;
-            color: #888;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
+.product-img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+}
 
-        .product-title {
-            font-size: 14px;
-            font-weight: 700;
-            margin: 5px 0;
-            color: #222;
-        }
+.product-info{
+    padding:14px;
+}
 
-        .price-box {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 10px;
-        }
+.brand-name{
+    color:#888;
+    font-size:10px;
+    text-transform:uppercase;
+    font-weight:bold;
+}
 
-        .current-price {
-            font-size: 16px;
-            font-weight: 800;
-            color: #111;
-        }
+.product-title{
+    font-size:14px;
+    font-weight:700;
+    margin:6px 0;
+}
 
-        .old-price {
-            font-size: 12px;
-            color: #999;
-            text-decoration: line-through;
-        }
+.price-box{
+    display:flex;
+    gap:8px;
+    align-items:center;
+}
 
-        .add-cart-btn {
-            width: 100%;
-            margin-top: 12px;
-            padding: 10px;
-            background: #111;
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 13px;
-            cursor: pointer;
-        }
+.current-price{
+    font-size:16px;
+    font-weight:800;
+}
 
-        /* Footer */
-        footer {
-            background: #111;
-            color: #bbb;
-            padding: 40px 20px 20px;
-            text-align: center;
-            margin-top: 50px;
-            font-size: 13px;
-        }
+.old-price{
+    font-size:12px;
+    color:#999;
+    text-decoration:line-through;
+}
 
-        footer h3 {
-            color: #fff;
-            margin-bottom: 10px;
-        }
-    </style>
+.product-buttons{
+    display:flex;
+    gap:7px;
+    margin-top:12px;
+}
+
+.view-btn,
+.add-cart-btn{
+    flex:1;
+    padding:10px 5px;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:12px;
+}
+
+.view-btn{
+    background:#fff;
+    border:1px solid #111;
+}
+
+.add-cart-btn{
+    background:#111;
+    color:white;
+    border:0;
+}
+
+/* PAYMENT */
+.payment-section{
+    background:#fff;
+    margin-top:30px;
+    padding:25px 20px;
+    text-align:center;
+    border-radius:12px;
+}
+
+.payment-section h2{
+    margin-bottom:8px;
+}
+
+.upi-btn{
+    display:inline-block;
+    margin-top:15px;
+    background:#111;
+    color:#fff;
+    padding:12px 25px;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* SOCIAL */
+.social-section{
+    text-align:center;
+    padding:35px 20px;
+}
+
+.instagram-btn{
+    display:inline-block;
+    margin-top:12px;
+    background:#ff3e6c;
+    color:white;
+    text-decoration:none;
+    padding:12px 25px;
+    border-radius:25px;
+    font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+    background:#111;
+    color:#bbb;
+    padding:35px 20px;
+    text-align:center;
+    margin-top:30px;
+    font-size:12px;
+}
+
+footer h3{
+    color:white;
+    margin-bottom:8px;
+}
+
+/* CART */
+.cart-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    z-index:500;
+}
+
+.cart-box{
+    background:white;
+    width:90%;
+    max-width:450px;
+    position:absolute;
+    right:0;
+    top:0;
+    height:100%;
+    padding:20px;
+    overflow-y:auto;
+}
+
+.cart-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #ddd;
+    padding-bottom:15px;
+}
+
+.close-btn{
+    border:0;
+    background:#eee;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.cart-item{
+    display:flex;
+    gap:10px;
+    padding:15px 0;
+    border-bottom:1px solid #eee;
+}
+
+.cart-item img{
+    width:65px;
+    height:70px;
+    object-fit:cover;
+    border-radius:6px;
+}
+
+.cart-item-info{
+    flex:1;
+}
+
+.remove-btn{
+    margin-top:5px;
+    border:0;
+    background:#ff3e6c;
+    color:#fff;
+    padding:5px 8px;
+    border-radius:4px;
+    font-size:10px;
+}
+
+.cart-total{
+    margin-top:20px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.checkout-btn{
+    width:100%;
+    padding:13px;
+    margin-top:15px;
+    background:#25D366;
+    color:white;
+    border:0;
+    border-radius:7px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* PRODUCT MODAL */
+.product-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    z-index:600;
+    padding:20px;
+    overflow:auto;
+}
+
+.product-modal{
+    background:white;
+    max-width:500px;
+    margin:30px auto;
+    border-radius:15px;
+    overflow:hidden;
+}
+
+.product-modal img{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+}
+
+.product-modal-content{
+    padding:20px;
+}
+
+.size-buttons{
+    display:flex;
+    gap:8px;
+    margin:12px 0;
+}
+
+.size-btn{
+    border:1px solid #ccc;
+    background:white;
+    padding:8px 15px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.size-btn.selected{
+    background:#111;
+    color:white;
+}
+
+.modal-add{
+    width:100%;
+    padding:13px;
+    background:#111;
+    color:white;
+    border:0;
+    border-radius:7px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* MOBILE */
+@media(max-width:650px){
+
+    header{
+        padding:12px;
+    }
+
+    nav{
+        display:none;
+    }
+
+    .logo{
+        font-size:19px;
+    }
+
+    .hero h1{
+        font-size:26px;
+    }
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
+    }
+
+    .product-img{
+        height:190px;
+    }
+
+    .product-info{
+        padding:10px;
+    }
+
+    .product-title{
+        font-size:12px;
+    }
+
+    .current-price{
+        font-size:14px;
+    }
+
+    .view-btn,
+    .add-cart-btn{
+        font-size:10px;
+        padding:9px 3px;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <!-- Top Promo Bar -->
-    <div class="top-bar">
-        🚀 Flat 50% OFF on First Order | Code: DODO50
-    </div>
+<!-- TOP BAR -->
+<div class="top-bar">
+🚀 Flat 50% OFF on First Order | Code: DODO50
+</div>
 
-    <!-- Header / Navbar -->
-    <header>
-        <div class="logo">DODO<span>TRENDZ</span></div>
-        <nav>
-            <a href="#">Men</a>
-            <a href="#">Women</a>
-            <a href="#">Oversized</a>
-        </nav>
-        <div class="nav-icons">
-            <button class="cart-btn" onclick="openCart()">🛒 Cart (<span id="cart-count">0</span>)</button>
+<!-- HEADER -->
+<header>
+
+<div class="logo">
+DODO<span>TRENDZ</span>
+</div>
+
+<nav>
+<a href="#trending-section">Men</a>
+<a href="#trending-section">Women</a>
+<a href="#trending-section">Oversized</a>
+</nav>
+
+<div>
+<button class="cart-btn" onclick="openCart()">
+🛒 Cart (<span id="cart-count">0</span>)
+</button>
+</div>
+
+</header>
+
+
+<!-- HERO -->
+<section class="hero">
+
+<h1>DESIGN OF THE DAY</h1>
+
+<p>
+Coolest Oversized T-Shirts & Streetwear Collection
+</p>
+
+<a href="#trending-section" class="shop-now-btn">
+EXPLORE NOW
+</a>
+
+</section>
+
+
+<!-- CATEGORIES -->
+<div class="categories">
+
+<div class="cat-chip active" onclick="filterProducts('all',this)">
+All Products
+</div>
+
+<div class="cat-chip" onclick="filterProducts('oversized',this)">
+Oversized T-Shirts
+</div>
+
+<div class="cat-chip" onclick="filterProducts('anime',this)">
+Anime Tees
+</div>
+
+<div class="cat-chip" onclick="filterProducts('hoodie',this)">
+Hoodies
+</div>
+
+</div>
+
+
+<!-- PRODUCTS -->
+<div class="container" id="trending-section">
+
+<div class="section-title">
+Trending Now 🔥
+</div>
+
+<div class="grid">
+
+
+<!-- PRODUCT 1 -->
+<div class="product-card" data-category="oversized">
+
+<span class="tag">BUY 1 GET 1</span>
+
+<img
+src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600"
+class="product-img"
+>
+
+<div class="product-info">
+
+<div class="brand-name">Dodo Trendz</div>
+
+<div class="product-title">
+Dodo Heavyweight Graphic Tee
+</div>
+
+<div class="price-box">
+<span class="current-price">₹499</span>
+<span class="old-price">₹999</span>
+</div>
+
+<div class="product-buttons">
+
+<button class="view-btn"
+onclick="showProduct(
+'Dodo Heavyweight Graphic Tee',
+499,
+'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600'
+)">
+View
+</button>
+
+<button class="add-cart-btn"
+onclick="addToCart(
+'Dodo Heavyweight Graphic Tee',
+499,
+'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600'
+)">
+Add
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- PRODUCT 2 -->
+<div class="product-card" data-category="anime">
+
+<span class="tag">HOT</span>
+
+<img
+src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600"
+class="product-img"
+>
+
+<div class="product-info">
+
+<div class="brand-name">Dodo Trendz</div>
+
+<div class="product-title">
+Chill Mode Anime Black Tee
+</div>
+
+<div class="price-box">
+<span class="current-price">₹599</span>
+<span class="old-price">₹1199</span>
+</div>
+
+<div class="product-buttons">
+
+<button class="view-btn"
+onclick="showProduct(
+'Chill Mode Anime Black Tee',
+599,
+'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600'
+)">
+View
+</button>
+
+<button class="add-cart-btn"
+onclick="addToCart(
+'Chill Mode Anime Black Tee',
+599,
+'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600'
+)">
+Add
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- PRODUCT 3 -->
+<div class="product-card" data-category="hoodie">
+
+<img
+src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=600"
+class="product-img"
+>
+
+<div class="product-info">
+
+<div class="brand-name">Dodo Trendz</div>
+
+<div class="product-title">
+Urban Oversized Street Hoodie
+</div>
+
+<div class="price-box">
+<span class="current-price">₹999</span>
+<span class="old-price">₹1999</span>
+</div>
+
+<div class="product-buttons">
+
+<button class="view-btn"
+onclick="showProduct(
+'Urban Oversized Street Hoodie',
+999,
+'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=600'
+)">
+View
+</button>
+
+<button class="add-cart-btn"
+onclick="addToCart(
+'Urban Oversized Street Hoodie',
+999,
+'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=600'
+)">
+Add
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- PRODUCT 4 -->
+<div class="product-card" data-category="oversized">
+
+<span class="tag">BESTSELLER</span>
+
+<img
+src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600"
+class="product-img"
+>
+
+<div class="product-info">
+
+<div class="brand-name">Dodo Trendz</div>
+
+<div class="product-title">
+Minimalist Dodo Signature Tee
+</div>
+
+<div class="price-box">
+<span class="current-price">₹449</span>
+<span class="old-price">₹899</span>
+</div>
+
+<div class="product-buttons">
+
+<button class="view-btn"
+onclick="showProduct(
+'Minimalist Dodo Signature Tee',
+449,
+'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600'
+)">
+View
+</button>
+
+<button class="add-cart-btn"
+onclick="addToCart(
+'Minimalist Dodo Signature Tee',
+449,
+'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600'
+)">
+Add
+</button>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+<!-- PAYMENT -->
+<div class="payment-section">
+
+<h2>💳 Easy UPI Payment</h2>
+
+<p>Pay securely using any UPI app.</p>
+
+<a
+class="upi-btn"
+id="upi-payment"
+href="upi://pay?pa=YOUR_UPI_ID@bank&pn=Dodo%20Trendz&cu=INR"
+>
+💰 Pay With UPI
+</a>
+
+<p style="font-size:11px;color:#888;margin-top:10px;">
+UPI payment button
+</p>
+
+</div>
+
+</div>
+
+
+<!-- INSTAGRAM -->
+<div class="social-section">
+
+<h2>📸 Follow Dodo Trendz</h2>
+
+<p>Latest drops & offers Instagram par dekho.</p>
+
+<a
+href="https://instagram.com/monu_puniya03"
+target="_blank"
+class="instagram-btn"
+>
+📸 Follow Us On Instagram
+</a>
+
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+
+<h3>DODO TRENDZ</h3>
+
+<p>
+100% Cotton Premium Apparel Made For Gen-Z
+</p>
+
+<p style="margin-top:15px;color:#666;">
+© 2026 Dodo Trendz. All rights reserved.
+</p>
+
+</footer>
+
+
+<!-- CART -->
+<div class="cart-overlay" id="cartOverlay">
+
+<div class="cart-box">
+
+<div class="cart-header">
+
+<h2>🛒 Your Cart</h2>
+
+<button class="close-btn" onclick="closeCart()">
+×
+</button>
+
+</div>
+
+<div id="cartItems"></div>
+
+<div class="cart-total">
+Total: ₹<span id="cartTotal">0</span>
+</div>
+
+<button class="checkout-btn" onclick="checkoutWhatsApp()">
+📱 Order On WhatsApp
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT MODAL -->
+<div class="product-overlay" id="productOverlay">
+
+<div class="product-modal">
+
+<img id="modalImage">
+
+<div class="product-modal-content">
+
+<button
+class="close-btn"
+style="float:right"
+onclick="closeProduct()"
+>
+×
+</button>
+
+<h2 id="modalTitle"></h2>
+
+<h3 style="margin-top:10px;">
+₹<span id="modalPrice"></span>
+</h3>
+
+<p style="margin-top:12px;">
+Select Size:
+</p>
+
+<div class="size-buttons">
+
+<button class="size-btn" onclick="selectSize(this)">
+S
+</button>
+
+<button class="size-btn" onclick="selectSize(this)">
+M
+</button>
+
+<button class="size-btn" onclick="selectSize(this)">
+L
+</button>
+
+<button class="size-btn" onclick="selectSize(this)">
+XL
+</button>
+
+</div>
+
+<button
+class="modal-add"
+onclick="addModalProduct()"
+>
+🛒 Add To Cart
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* CART DATA */
+
+let cart = [];
+
+let modalProduct = {
+    name:"",
+    price:0,
+    image:""
+};
+
+
+/* ADD TO CART */
+
+function addToCart(name,price,image){
+
+    cart.push({
+        name:name,
+        price:price,
+        image:image
+    });
+
+    updateCart();
+
+    alert("🛒 Product added to Dodo Trendz Cart!");
+
+}
+
+
+/* UPDATE CART */
+
+function updateCart(){
+
+    document.getElementById("cart-count").innerText = cart.length;
+
+    let items = document.getElementById("cartItems");
+
+    let total = 0;
+
+    items.innerHTML = "";
+
+    if(cart.length === 0){
+
+        items.innerHTML =
+        "<p style='padding:20px 0;color:#777;'>Your cart is empty.</p>";
+
+    }
+
+    cart.forEach((item,index)=>{
+
+        total += item.price;
+
+        items.innerHTML += `
+
+        <div class="cart-item">
+
+        <img src="${item.image}">
+
+        <div class="cart-item-info">
+
+        <b>${item.name}</b>
+
+        <p style="margin-top:5px;">
+        ₹${item.price}
+        </p>
+
+        <button
+        class="remove-btn"
+        onclick="removeItem(${index})"
+        >
+        Remove
+        </button>
+
         </div>
-    </header>
-
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1>DESIGN OF THE DAY</h1>
-        <p>Coolest Oversized T-Shirts & Streetwear Collection</p>
-        <a href="#trending-section" class="shop-now-btn">EXPLORE NOW</a>
-    </div>
-
-    <!-- Categories Filter -->
-    <div class="categories">
-        <div class="cat-chip active">All Products</div>
-        <div class="cat-chip">Oversized T-Shirts</div>
-        <div class="cat-chip">Anime Tees</div>
-        <div class="cat-chip">Hoodies</div>
-    </div>
-
-    <!-- Product Grid -->
-    <div class="container">
-        <div class="section-title">Trending Now 🔥</div>
-        <div class="grid">
-
-            <!-- Product 1 -->
-            <div class="product-card">
-                <span class="tag">BUY 1 GET 1</span>
-                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500" class="product-img" alt="T-Shirt">
-                <div class="product-info">
-                    <div class="brand-name">Dodo Trendz</div>
-                    <div class="product-title">Dodo Heavyweight Graphic Tee</div>
-                    <div class="price-box">
-                        <span class="current-price">₹499</span>
-                        <span class="old-price">₹999</span>
-                    </div>
-                    <button class="add-cart-btn" onclick="addToCart()">Add To Cart</button>
-                </div>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="product-card">
-                <span class="tag">HOT</span>
-                <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=500" class="product-img" alt="Black Tee">
-                <div class="product-info">
-                    <div class="brand-name">Dodo Trendz</div>
-                    <div class="product-title">Chill Mode Anime Black Tee</div>
-                    <div class="price-box">
-                        <span class="current-price">₹599</span>
-                        <span class="old-price">₹1,199</span>
-                    </div>
-                    <button class="add-cart-btn" onclick="addToCart()">Add To Cart</button>
-                </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=500" class="product-img" alt="Hoodie">
-                <div class="product-info">
-                    <div class="brand-name">Dodo Trendz</div>
-                    <div class="product-title">Urban Oversized Street Hoodie</div>
-                    <div class="price-box">
-                        <span class="current-price">₹999</span>
-                        <span class="old-price">₹1,999</span>
-                    </div>
-                    <button class="add-cart-btn" onclick="addToCart()">Add To Cart</button>
-                </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product-card">
-                <span class="tag">BESTSELLER</span>
-                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=500" class="product-img" alt="White Tee">
-                <div class="product-info">
-                    <div class="brand-name">Dodo Trendz</div>
-                    <div class="product-title">Minimalist Dodo Signature Tee</div>
-                    <div class="price-box">
-                        <span class="current-price">₹449</span>
-                        <span class="old-price">₹899</span>
-                    </div>
-                    <button class="add-cart-btn" onclick="addToCart()">Add To Cart</button>
-                </div>
-            </div>
 
         </div>
-    </div>
 
-    <!-- Footer -->
-    <footer>
-        <h3>DODO TRENDZ</h3>
-        <p>100% Cotton Premium Apparel Made For Gen-Z</p>
-        <p style="margin-top: 15px; color: #666;">© 2026 Dodo Trendz. All rights reserved.</p>
-    </footer>
+        `;
 
-    <!-- Simple Cart Script -->
-    <script>
-        let count = 0;
-        function addToCart() {
-            count++;
-            document.getElementById('cart-count').innerText = count;
-            alert("Item added to Dodo Trendz Cart! 🛒");
+    });
+
+    document.getElementById("cartTotal").innerText = total;
+
+}
+
+
+/* REMOVE ITEM */
+
+function removeItem(index){
+
+    cart.splice(index,1);
+
+    updateCart();
+
+}
+
+
+/* OPEN CART */
+
+function openCart(){
+
+    document.getElementById("cartOverlay").style.display="block";
+
+    updateCart();
+
+}
+
+
+/* CLOSE CART */
+
+function closeCart(){
+
+    document.getElementById("cartOverlay").style.display="none";
+
+}
+
+
+/* PRODUCT DETAILS */
+
+function showProduct(name,price,image){
+
+    modalProduct = {
+        name:name,
+        price:price,
+        image:image
+    };
+
+    document.getElementById("modalTitle").innerText=name;
+
+    document.getElementById("modalPrice").innerText=price;
+
+    document.getElementById("modalImage").src=image;
+
+    document.getElementById("productOverlay").style.display="block";
+
+}
+
+
+/* CLOSE PRODUCT */
+
+function closeProduct(){
+
+    document.getElementById("productOverlay").style.display="none";
+
+}
+
+
+/* SIZE */
+
+function selectSize(button){
+
+    document.querySelectorAll(".size-btn")
+    .forEach(btn=>{
+        btn.classList.remove("selected");
+    });
+
+    button.classList.add("selected");
+
+}
+
+
+/* ADD FROM PRODUCT MODAL */
+
+function addModalProduct(){
+
+    addToCart(
+        modalProduct.name,
+        modalProduct.price,
+        modalProduct.image
+    );
+
+    closeProduct();
+
+}
+
+
+/* CATEGORY FILTER */
+
+function filterProducts(category,button){
+
+    document.querySelectorAll(".cat-chip")
+    .forEach(btn=>{
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    document.querySelectorAll(".product-card")
+    .forEach(product=>{
+
+        if(
+            category === "all" ||
+            product.dataset.category === category
+        ){
+
+            product.style.display="block";
+
+        }else{
+
+            product.style.display="none";
+
         }
 
-        function openCart() {
-            alert("Cart me total " + count + " items hain!");
-        }
-    </script>
+    });
+
+}
+
+
+/* WHATSAPP ORDER */
+
+function checkoutWhatsApp(){
+
+    if(cart.length === 0){
+
+        alert("Cart is empty!");
+
+        return;
+
+    }
+
+    let message =
+    "Hello Dodo Trendz!%0A%0A" +
+    "I want to order:%0A";
+
+    let total=0;
+
+    cart.forEach((item,index)=>{
+
+        message +=
+        `${index+1}. ${item.name} - ₹${item.price}%0A`;
+
+        total += item.price;
+
+    });
+
+    message +=
+    `%0ATotal: ₹${total}%0A%0A` +
+    "Please confirm my order.";
+
+    /* APNA WHATSAPP NUMBER YAHAN LIKHO */
+
+    let whatsappNumber="91XXXXXXXXXX";
+
+    window.open(
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        message,
+        "_blank"
+    );
+
+}
+
+
+/* CLOSE WHEN CLICK OUTSIDE */
+
+document.getElementById("cartOverlay").onclick=function(e){
+
+    if(e.target === this){
+        closeCart();
+    }
+
+};
+
+document.getElementById("productOverlay").onclick=function(e){
+
+    if(e.target === this){
+        closeProduct();
+    }
+
+};
+
+</script>
+
 </body>
 </html>
