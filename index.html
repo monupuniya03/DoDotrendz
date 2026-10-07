@@ -23,7 +23,7 @@ nav a{margin:0 10px;text-decoration:none;color:#333;font-weight:600;font-size:14
 .container{max-width:1100px;margin:0 auto;padding:20px}
 .section-title{font-size:20px;margin-bottom:20px;font-weight:800}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.product-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.05);transition:.3s;position:relative}
+.product-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.05);transition:.3s;position:relative;cursor:pointer}
 .product-card:hover{transform:translateY(-5px)}
 .tag{position:absolute;top:10px;left:10px;background:#ff3e6c;color:#fff;font-size:10px;padding:4px 8px;border-radius:4px;font-weight:bold;z-index:2}
 .product-img{width:100%;height:320px;object-fit:contain;background:#fff;display:block}
@@ -36,6 +36,27 @@ nav a{margin:0 10px;text-decoration:none;color:#333;font-weight:600;font-size:14
 .add-cart-btn{width:100%;margin-top:12px;padding:10px;background:#111;color:#fff;border:none;border-radius:6px;font-weight:600;font-size:13px;cursor:pointer}
 footer{background:#111;color:#bbb;padding:40px 20px 20px;text-align:center;margin-top:50px;font-size:13px}
 footer h3{color:#fff;margin-bottom:10px}
+
+/* Product detail page */
+#detail{display:none;position:fixed;inset:0;background:#fff;z-index:500;overflow-y:auto}
+.d-top{position:sticky;top:0;background:#fff;padding:12px 15px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #eee;z-index:2}
+.back-btn{background:#f1f1f1;border:none;border-radius:20px;padding:8px 16px;font-weight:700;font-size:14px;cursor:pointer}
+.d-wrap{max-width:900px;margin:0 auto;padding:15px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+.d-img{width:100%;max-height:520px;object-fit:contain;background:#fafafa;border-radius:12px}
+.d-brand{font-size:12px;color:#888;font-weight:bold;text-transform:uppercase}
+.d-title{font-size:22px;font-weight:800;margin:6px 0}
+.d-price{display:flex;align-items:center;gap:10px;margin:10px 0}
+.d-price b{font-size:26px}
+.d-price s{color:#999}
+.d-off{color:#0a9d4d;font-weight:700;font-size:14px}
+.d-label{font-weight:700;margin:18px 0 8px;font-size:14px}
+.sizes{display:flex;gap:8px;flex-wrap:wrap}
+.size{min-width:48px;padding:10px 14px;border:1px solid #ccc;border-radius:8px;background:#fff;font-weight:700;cursor:pointer}
+.size.sel{background:#111;color:#fff;border-color:#111}
+.d-desc{font-size:14px;line-height:1.6;color:#555}
+.d-desc li{margin-left:18px}
+.d-btn{width:100%;margin-top:22px;padding:15px;background:#ff3e6c;color:#fff;border:none;border-radius:8px;font-weight:800;font-size:15px;cursor:pointer}
+.d-msg{color:#e53935;font-size:13px;margin-top:8px;min-height:18px}
 </style>
 </head>
 <body>
@@ -51,76 +72,20 @@ footer h3{color:#fff;margin-bottom:10px}
 <div class="hero">
   <h1>DESIGN OF THE DAY</h1>
   <p>Coolest Oversized T-Shirts & Streetwear Collection</p>
-  <button class="shop-now-btn">EXPLORE NOW</button>
+  <button class="shop-now-btn" onclick="document.getElementById('grid').scrollIntoView({behavior:'smooth'})">EXPLORE NOW</button>
 </div>
 
-<div class="categories">
-  <div class="cat-chip active">All Products</div>
-  <div class="cat-chip">Oversized T-Shirts</div>
-  <div class="cat-chip">Anime Tees</div>
-  <div class="cat-chip">Hoodies</div>
-  <div class="cat-chip">Jeans</div>
+<div class="categories" id="cats">
+  <div class="cat-chip active" data-cat="all">All Products</div>
+  <div class="cat-chip" data-cat="tee">Oversized T-Shirts</div>
+  <div class="cat-chip" data-cat="anime">Anime Tees</div>
+  <div class="cat-chip" data-cat="hoodie">Hoodies</div>
+  <div class="cat-chip" data-cat="jeans">Jeans</div>
 </div>
 
 <div class="container">
   <div class="section-title">Trending Now 🔥</div>
-  <div class="grid">
-
-    <div class="product-card">
-      <span class="tag">BUY 1 GET 1</span>
-      <img src="eagle.png" class="product-img" alt="Eagle Tee">
-      <div class="product-info">
-        <div class="brand-name">Dodo Trendz</div>
-        <div class="product-title">Dodo Eagle Heavyweight Graphic Tee</div>
-        <div class="price-box"><span class="current-price">₹499</span><span class="old-price">₹999</span></div>
-        <button class="add-cart-btn" onclick="addToCart()">Add To Cart</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <span class="tag">HOT</span>
-      <img src="anime.png" class="product-img" alt="Anime Tee">
-      <div class="product-info">
-        <div class="brand-name">Dodo Trendz</div>
-        <div class="product-title">Portal Anime Oversized Tee</div>
-        <div class="price-box"><span class="current-price">₹599</span><span class="old-price">₹1,199</span></div>
-        <button class="add-cart-btn" onclick="addToCart()">Add To Cart</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <img src="hoodie.png" class="product-img" alt="Hoodie">
-      <div class="product-info">
-        <div class="brand-name">Dodo Trendz</div>
-        <div class="product-title">Dodo Xplorer Oversized Hoodie</div>
-        <div class="price-box"><span class="current-price">₹999</span><span class="old-price">₹1,999</span></div>
-        <button class="add-cart-btn" onclick="addToCart()">Add To Cart</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <span class="tag">BESTSELLER</span>
-      <img src="cartoon.png" class="product-img" alt="Cartoon Tee">
-      <div class="product-info">
-        <div class="brand-name">Dodo Trendz</div>
-        <div class="product-title">Same Madness Cartoon Tee</div>
-        <div class="price-box"><span class="current-price">₹449</span><span class="old-price">₹899</span></div>
-        <button class="add-cart-btn" onclick="addToCart()">Add To Cart</button>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <span class="tag">NEW</span>
-      <img src="jeans.png" class="product-img" alt="Baggy Jeans">
-      <div class="product-info">
-        <div class="brand-name">Dodo Trendz</div>
-        <div class="product-title">Dodo Explorer Baggy Jeans</div>
-        <div class="price-box"><span class="current-price">₹1,299</span><span class="old-price">₹2,499</span></div>
-        <button class="add-cart-btn" onclick="addToCart()">Add To Cart</button>
-      </div>
-    </div>
-
-  </div>
+  <div class="grid" id="grid"></div>
 </div>
 
 <footer>
@@ -129,16 +94,116 @@ footer h3{color:#fff;margin-bottom:10px}
   <p style="margin-top:15px;color:#666">© 2026 Dodo Trendz. All rights reserved.</p>
 </footer>
 
+<!-- Product Detail Page -->
+<div id="detail">
+  <div class="d-top"><button class="back-btn" onclick="closeDetail()">← Back</button><b>Product Details</b></div>
+  <div class="d-wrap">
+    <img id="d-img" class="d-img" src="" alt="">
+    <div>
+      <div class="d-brand">Dodo Trendz</div>
+      <div class="d-title" id="d-title"></div>
+      <div class="d-price"><b id="d-price"></b><s id="d-old"></s><span class="d-off" id="d-off"></span></div>
+      <div class="d-label">Select Size</div>
+      <div class="sizes" id="d-sizes"></div>
+      <div class="d-msg" id="d-msg"></div>
+      <button class="d-btn" onclick="addFromDetail()">ADD TO CART 🛒</button>
+      <div class="d-label">Product Details</div>
+      <ul class="d-desc" id="d-desc"></ul>
+    </div>
+  </div>
+</div>
+
 <script>
-let count=0;
-function addToCart(){
+// ===== Yaha apne products badlo =====
+var products = [
+  {id:1, cat:"tee",   img:"eagle.png",   title:"Dodo Eagle Heavyweight Graphic Tee", price:499,  old:999,  tag:"BUY 1 GET 1", sizes:["S","M","L","XL","XXL"],
+   desc:["Oversized drop shoulder fit","100% premium cotton","Premium DTF print, long lasting","Soft & breathable fabric"]},
+  {id:2, cat:"anime", img:"anime.png",   title:"Portal Anime Oversized Tee",         price:599,  old:1199, tag:"HOT", sizes:["S","M","L","XL"],
+   desc:["Oversized fit","100% premium cotton","Vibrant anime print","Soft & comfortable"]},
+  {id:3, cat:"hoodie",img:"hoodie.png",  title:"Dodo Xplorer Oversized Hoodie",      price:999,  old:1999, tag:"", sizes:["M","L","XL","XXL"],
+   desc:["Heavy fleece fabric","Premium HD print","Gold metal tip drawstrings","Soft & durable"]},
+  {id:4, cat:"tee",   img:"cartoon.png", title:"Same Madness Cartoon Tee",           price:449,  old:899,  tag:"BESTSELLER", sizes:["S","M","L","XL"],
+   desc:["Oversized fit","100% cotton","Classic character, new style","Sleeve tag detail"]},
+  {id:5, cat:"jeans", img:"jeans.png",   title:"Dodo Explorer Baggy Jeans",          price:1299, old:2499, tag:"NEW", sizes:["28","30","32","34","36"],
+   desc:["Premium denim fabric","Baggy fit","Dodo Trendz logo patch","Custom side tag"]}
+];
+// ====================================
+
+var count = 0, current = null, selSize = null;
+function fmt(n){return "₹" + n.toLocaleString("en-IN");}
+
+function render(cat){
+  var html = "";
+  products.forEach(function(p){
+    if(cat !== "all" && p.cat !== cat) return;
+    html += '<div class="product-card" onclick="openDetail('+p.id+')">'
+      + (p.tag ? '<span class="tag">'+p.tag+'</span>' : '')
+      + '<img src="'+p.img+'" class="product-img" alt="'+p.title+'">'
+      + '<div class="product-info"><div class="brand-name">Dodo Trendz</div>'
+      + '<div class="product-title">'+p.title+'</div>'
+      + '<div class="price-box"><span class="current-price">'+fmt(p.price)+'</span><span class="old-price">'+fmt(p.old)+'</span></div>'
+      + '<button class="add-cart-btn">View Details</button></div></div>';
+  });
+  document.getElementById("grid").innerHTML = html || "<p>Is category me abhi koi product nahi hai.</p>";
+}
+
+document.querySelectorAll(".cat-chip").forEach(function(chip){
+  chip.addEventListener("click", function(){
+    document.querySelectorAll(".cat-chip").forEach(function(c){c.classList.remove("active");});
+    chip.classList.add("active");
+    render(chip.getAttribute("data-cat"));
+  });
+});
+
+function openDetail(id){
+  current = products.filter(function(p){return p.id === id;})[0];
+  selSize = null;
+  document.getElementById("d-img").src = current.img;
+  document.getElementById("d-title").textContent = current.title;
+  document.getElementById("d-price").textContent = fmt(current.price);
+  document.getElementById("d-old").textContent = fmt(current.old);
+  document.getElementById("d-off").textContent = Math.round((1 - current.price/current.old)*100) + "% OFF";
+  document.getElementById("d-desc").innerHTML = current.desc.map(function(d){return "<li>"+d+"</li>";}).join("");
+  document.getElementById("d-msg").textContent = "";
+  var box = document.getElementById("d-sizes");
+  box.innerHTML = "";
+  current.sizes.forEach(function(s){
+    var b = document.createElement("button");
+    b.className = "size"; b.textContent = s;
+    b.onclick = function(){
+      selSize = s;
+      box.querySelectorAll(".size").forEach(function(x){x.classList.remove("sel");});
+      b.classList.add("sel");
+      document.getElementById("d-msg").textContent = "";
+    };
+    box.appendChild(b);
+  });
+  document.getElementById("detail").style.display = "block";
+  document.getElementById("detail").scrollTop = 0;
+  document.body.style.overflow = "hidden";
+}
+
+function closeDetail(){
+  document.getElementById("detail").style.display = "none";
+  document.body.style.overflow = "";
+}
+
+function addFromDetail(){
+  if(!selSize){
+    document.getElementById("d-msg").textContent = "Pehle size select karo 👆";
+    return;
+  }
   count++;
-  document.getElementById('cart-count').innerText=count;
-  alert("Item added to Dodo Trendz Cart! 🛒");
+  document.getElementById("cart-count").textContent = count;
+  alert(current.title + " (Size " + selSize + ") cart me add ho gaya! 🛒");
+  closeDetail();
 }
+
 function openCart(){
-  alert("Cart me total "+count+" items hain!");
+  alert("Cart me total " + count + " items hain!");
 }
+
+render("all");
 </script>
 </body>
 </html>
